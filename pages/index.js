@@ -33,27 +33,23 @@ export default function Home() {
   }
 
 
-  const fuse = new Fuse(getResorts(), {
-      keys: ['resortName'],
-      includeScore: true
-  })
-
-  const results = fuse.search('val d')
-  const resortsResult = results.map(resort => resort.item)
-
-  console.log("results", resortsResult)
-
   const handleSubmit = (e) => {
     e.preventDefault()
-    const resorts = getResorts()
+
+    const fuse = new Fuse(getResorts(), {
+      keys: ['resortName'],
+      includeScore: true
+    })
+
     const input = e.target.elements.search.value
-    console.log(input)
-    const match = resorts.find(resort => resort.resortName.toLowerCase().includes(input.toLowerCase()))
-    if (match) {
-      setCurrentResort(match)
+    const results = fuse.search(input)
+    const resortsResult = results.map(resort => resort.item)
+    const singleResort = resortsResult.find(resort => resort.resortName)
+
+    if (singleResort) {
+      setCurrentResort(singleResort)
     }
   }
-
 
   return (
     <div className={styles.container}>
@@ -78,7 +74,6 @@ export default function Home() {
       </main>
     </div>
   )
-
 
 }
 
