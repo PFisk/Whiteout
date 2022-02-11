@@ -1,0 +1,61 @@
+.snow-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0px;
+    max-width: 600px;
+}
+
+.all-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resort-wrapper {
+    justify-content: space-around;
+}
+
+.img-wrapper {
+    width: 600px;
+}
+
+.resort-title {
+    text-align: center;
+    color: #333333;
+    font-size: 1.5rem;
+    padding-bottom: 100px;
+}
+
+.input-field:focus {
+    border: 3px solid #555555;
+}
+
+.input-field {
+    border: 3px solid #a5a5a5;
+    border-radius: 12px;
+    padding: 10px;
+    width: 400px;
+    outline: none;
+    font-size: 18px;
+}
+
+.item label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.item h3 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.item span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-left: -10px;
+}
+
