@@ -2,15 +2,15 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Resort from '../components/Resort'
-//import Autosuggest from 'react-autosuggest'
+import Autosuggest from 'react-autosuggest'
 import Fuse from 'fuse.js'
 
 export default function Home() {
 
   const [data, setData] = useState([])
   const [currentResort, setCurrentResort] = useState(null)
-  //const [value, setValue] = useState('')
-  //const [suggestion, setSuggestion] = useState([])
+  const [value, setValue] = useState('')
+  const [suggestion, setSuggestion] = useState([])
 
   const getData = async () => {
     const response = await fetch('/api/resorts')
@@ -46,50 +46,29 @@ export default function Home() {
     const resortsResult = results.map(resort => resort.item)
     const singleResort = resortsResult.find(resort => resort.resortName)
 
+    console.log("resortsResult", resortsResult)
+
     if (singleResort) {
       setCurrentResort(singleResort)
     }
   }
 
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Whiteout</title>
-        <meta name="description" content="Snow depths for your local resort" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        {currentResort &&
-          (<Resort resort={currentResort} />)
-        }
-        <form onSubmit={(e) => handleSubmit(e)} method="get">
-          <input className='input-field'
-            type="text"
-            id="header-search"
-            placeholder="Search..."
-            name="search"
-          />
-        </form>
-      </main>
-    </div>
-  )
-
-}
-
-
-/* 
   const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    const resorts = getResorts()
+    const fuse = new Fuse(getResorts(), {
+      keys: ['resortName'],
+      includeScore: true
+    })
 
-    console.log("test", resorts)
+    const results = fuse.search(inputValue)
+    const resortsResult = results.map(resort => resort.item)
 
-    return inputLength === 0 ? [] : resorts.filter(resort =>
-      resort.resortName.toLowerCase().slice(0, inputLength) === inputValue
-    );
+    console.log(results)
+
+    return inputLength === 0 ? [] : resortsResult.filter(resort => 
+      resort.resortName.toLowerCase().slice(0, inputLength) === inputValue).slice(0, 5);
   };
 
   const getSuggestionValue = suggestion => suggestion.resortName;
@@ -118,7 +97,28 @@ export default function Home() {
     onChange: onChange
   }
 
-          <Autosuggest 
+
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Whiteout</title>
+        <meta name="description" content="Snow depths for your local resort" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        {currentResort &&
+          (<Resort resort={currentResort} />)
+        }
+        <form onSubmit={(e) => handleSubmit(e)} method="get">
+          <input className='input-field'
+            type="text"
+            id="header-search"
+            placeholder="Search..."
+            name="search"
+          />
+        </form>
+        <Autosuggest 
           suggestions={suggestion}
           onSuggestionsFetchRequested={onSuggestionsFetchRequested}
           onSuggestionsClearRequested={onSuggestionsClearRequested}
@@ -126,5 +126,8 @@ export default function Home() {
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
         />
+      </main>
+    </div>
+  )
 
- */
+}
