@@ -1,0 +1,52 @@
+{
+    "Austria": {
+        "name": "Austria",
+        "url": "https://www.bergfex.com/oesterreich/schneewerte/",
+        "resorts": []
+    },
+    "Switzerland": {
+        "name": "Switzerland",
+        "url": "https://www.bergfex.com/schweiz/schneewerte/",
+        "resorts": []
+    },
+    "Germany": {
+        "name": "Germany",
+        "url": "https://www.bergfex.com/deutschland/schneewerte/",
+        "resorts": []
+    },
+    "Italy": {
+        "name": "Italy",
+        "url": "https://www.bergfex.com/italien/schneewerte/",
+        "resorts": []
+    },
+    "Slovenia": {
+        "name": "Slovenia",
+        "url": "https://www.bergfex.com/slovenia/schneewerte/",
+        "resorts": []
+    },
+    "France": {
+        "name": "France",
+        "url": "https://www.bergfex.com/frankreich/schneewerte/",
+        "resorts": []
+    },
+    "CzechRepublic": { 
+        "name": "Czech Republic",
+        "url": "https://www.bergfex.com/czechia/schneewerte/",
+        "resorts": []
+    },
+    "Slovakia": {
+        "name": "Slovakia",
+        "url": "https://www.bergfex.com/slovakia/schneewerte/",
+        "resorts": []
+    },
+    "Spain": {
+        "name": "Spain",
+        "url": "https://www.bergfex.com/spanien/schneewerte/",
+        "resorts": []
+    },
+    "Liechtenstein": {
+        "name": "Liechtenstein",
+        "url": "https://www.bergfex.com/liechtenstein/schneewerte/",
+        "resorts": []
+    }
+}
