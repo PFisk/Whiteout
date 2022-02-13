@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Header from '../components/Header'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Resort from '../components/Resort'
@@ -36,21 +37,25 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    const input = e.target.elements[0].value
+    const singleResort = search(input)
+
+    if (singleResort) {
+      setCurrentResort(singleResort)
+    }
+  }
+
+  const search = (input) => {
     const fuse = new Fuse(getResorts(), {
       keys: ['resortName'],
       includeScore: true
     })
-
-    const input = e.target.elements.search.value
     const results = fuse.search(input)
     const resortsResult = results.map(resort => resort.item)
     const singleResort = resortsResult.find(resort => resort.resortName)
 
     console.log("resortsResult", resortsResult)
-
-    if (singleResort) {
-      setCurrentResort(singleResort)
-    }
+    return singleResort
   }
 
   const getSuggestions = value => {
@@ -65,9 +70,7 @@ export default function Home() {
     const results = fuse.search(inputValue)
     const resortsResult = results.map(resort => resort.item)
 
-    console.log(results)
-
-    return inputLength === 0 ? [] : resortsResult.filter(resort => 
+    return inputLength === 0 ? [] : resortsResult.filter(resort =>
       resort.resortName.toLowerCase().slice(0, inputLength) === inputValue).slice(0, 5);
   };
 
@@ -79,7 +82,7 @@ export default function Home() {
     </div>
   );
 
-  const onChange = (event, { newValue}) => {
+  const onChange = (event, { newValue }) => {
     setValue(newValue)
   }
 
@@ -87,12 +90,18 @@ export default function Home() {
     setSuggestion(getSuggestions(value))
   }
 
+  const onSuggestionSelected = (e, { suggestionValue }) => {
+    console.log(suggestionValue)
+    const singleResort = search(suggestionValue)
+    setCurrentResort(singleResort)
+  }
+
   const onSuggestionsClearRequested = () => {
     setSuggestion([])
   }
 
   const inputProps = {
-    placeholder: 'Search for a resort',
+    placeholder: 'Search for a resort...',
     value: value,
     onChange: onChange
   }
@@ -106,26 +115,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
+
       <main className={styles.main}>
         {currentResort &&
           (<Resort resort={currentResort} />)
         }
         <form onSubmit={(e) => handleSubmit(e)} method="get">
-          <input className='input-field'
-            type="text"
-            id="header-search"
-            placeholder="Search..."
-            name="search"
+          <Autosuggest
+            suggestions={suggestion}
+            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={onSuggestionsClearRequested}
+            onSuggestionSelected={onSuggestionSelected}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            inputProps={inputProps}
           />
         </form>
-        <Autosuggest 
-          suggestions={suggestion}
-          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps}
-        />
       </main>
     </div>
   )

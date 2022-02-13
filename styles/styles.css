@@ -1,3 +1,16 @@
+html {
+    overflow-y: scroll;
+}
+
+.header-wrapper {
+    padding: 10px 0px 0px 0px;
+}
+
+.header-img-wrapper {
+    height: 60px;
+    width: 260px;
+}
+
 .snow-container {
     display: flex;
     justify-content: space-around;
@@ -114,7 +127,7 @@
   
 .react-autosuggest__suggestion {
     cursor: pointer;
-    padding: 12px 12px;
+    padding: 4px 12px;
 }
   
 .react-autosuggest__suggestion--highlighted {
