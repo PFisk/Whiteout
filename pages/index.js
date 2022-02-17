@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Resort from '../components/Resort'
 import Autosuggest from 'react-autosuggest'
 import Fuse from 'fuse.js'
+import { useRouter } from 'next/router'
 
 export default function Home() {
 
@@ -12,6 +13,7 @@ export default function Home() {
   const [currentResort, setCurrentResort] = useState(null)
   const [value, setValue] = useState('')
   const [suggestion, setSuggestion] = useState([])
+  const router = useRouter()
 
   const getData = async () => {
     const response = await fetch('/api/resorts')
@@ -42,6 +44,8 @@ export default function Home() {
     if (singleResort) {
       setCurrentResort(singleResort)
     }
+
+    router.push(`/resort/${singleResort.handle}`)
   }
 
   const search = (input) => {
@@ -93,6 +97,7 @@ export default function Home() {
     console.log(suggestionValue)
     const singleResort = search(suggestionValue)
     setCurrentResort(singleResort)
+    router.push(`/resort/${singleResort.handle}`)
   }
 
   const onSuggestionsClearRequested = () => {
