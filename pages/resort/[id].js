@@ -1,24 +1,69 @@
 import Head from 'next/head'
-import Header from '../components/Header'
+import Header from '../../components/Header'
 import { useEffect, useState } from 'react'
-import styles from '../styles/Home.module.css'
-import Resort from '../components/Resort'
+import styles from '../../styles/Home.module.css'
+import Resort from '../../components/Resort'
 import Autosuggest from 'react-autosuggest'
 import Fuse from 'fuse.js'
 
-export default function Home() {
+const getData = async () => {
+  const response = await fetch('http://localhost:3000/api/resorts')
+  const resorts = await response.json()
+  return resorts
+}
+
+const getAllResortNames = async () => {
+  const resorts = await getData()
+
+  const handles = Object.values(resorts).map(country => {
+    return country.resorts.map(resort => {
+      return { params: { id: resort.handle } }
+    })
+  }).flat()
+  return handles
+}
+
+
+
+export async function getStaticPaths() {
+  const paths = await getAllResortNames()
+  return {
+    paths,
+    fallback: false
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const resortData = await getResortData(params.id)
+  return {
+    props: {
+      resortData
+    }
+  }
+}
+
+async function getResortData(handle) {
+  const allResorts = await getData()
+  const resorts = Object.values(allResorts).map(country => {
+    return country.resorts.map(r => {
+      return r
+    })
+  }).flat()
+
+  const resortData = Object.values(resorts).find(r => {
+    return r.handle === handle
+  })
+  return { handle, ...resortData }
+}
+
+
+
+export default function ResortPage({ resortData }) {
 
   const [data, setData] = useState([])
-  const [currentResort, setCurrentResort] = useState(null)
+  const [currentResort, setCurrentResort] = useState(resortData)
   const [value, setValue] = useState('')
   const [suggestion, setSuggestion] = useState([])
-
-  const getData = async () => {
-    const response = await fetch('/api/resorts')
-    const resorts = await response.json()
-    console.log(resorts)
-    return resorts
-  }
 
   useEffect(() => {
     getData().then(resorts => setData(resorts))
@@ -32,6 +77,7 @@ export default function Home() {
       })
     }).flat()
   }
+
 
   const handleSubmit = (e) => {
     e.preventDefault()

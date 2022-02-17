@@ -31,14 +31,18 @@ const getResortsBF = async (url) => {
     const resorts = []
 
     $("table tbody tr", html).each(function() {
-        const resortName = $(this).find("a").text()
+        const displayName = $(this).find("a").text().replace(/\//g, '-')
+        const searchName = normalizeString(displayName)
+        const handle = handleizer(searchName).toLowerCase()
         const snowBottom = $(this).find("td").eq(1).text().trim().replace(/\D/g,'')
         const snowTop = $(this).find("td").eq(2).text().trim().replace(/\D/g,'')
         const newSnow = $(this).find("td").eq(3).text().trim().replace(/\D/g,'')
         const lifts = $(this).find("span").text().trim()
         
         resorts.push({
-            resortName: resortName,
+            resortName: displayName,
+            searchName: searchName,
+            handle: handle,
             snowBottom: snowBottom === "" ? null : parseInt(snowBottom),
             snowTop: snowTop === "" ? null : parseInt(snowTop),
             newSnow: newSnow === "" ? null : parseInt(newSnow),
@@ -49,6 +53,15 @@ const getResortsBF = async (url) => {
     return resorts
 
 }
+
+const handleizer = (str) => {
+    return str.replace(/(\s-\s)|\s/g, '-')
+}
+
+const normalizeString = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
 
 const getCountriesOTS = async () => {
     const countries = Object.keys(dataOTS)
@@ -79,14 +92,18 @@ const getResortOTS = async (url) => {
     let resort = {}
 
     $(".styles_main__vq2PA", html).each(function () {
-        const resortName = $(this).find(".styles_h2__1fsE4").text().trim().replace(/:\D*/g, '')
+        const displayName = $(this).find(".styles_h2__1fsE4").text().trim().replace(/:\D*/g, '').replace(/\//g, '-')
+        const searchName = normalizeString(displayName)
+        const handle = handleizer(searchName).toLowerCase()
         const newSnow = $(this).find(".styles_text__3kNRt").text().trim().replace(/\D/g, '')
         const snowBottom = $(this).find("[title='Base'] + div .styles_value__ocDGV").text().trim().replace(/\D/g, '')
         const snowTop = $(this).find("[title='Summit'] + div .styles_value__ocDGV").text().trim().replace(/\D/g, '')
         const lifts = $(this).find("[title='Lifts Open'] + div .styles_value__ocDGV").text().trim().replace(/\d*[/]/g, '')
 
         resort = {
-            resortName: resortName,
+            resortName: displayName,
+            searchName: searchName,
+            handle: handle,
             newSnow: newSnow === "" ? null : parseInt(newSnow),
             snowBottom: snowBottom === "" ? null : parseInt(snowBottom),
             snowTop: snowTop === "" ? null : parseInt(snowTop),
@@ -103,8 +120,6 @@ const scrape = async () => {
     await getCountriesOTS()
 
     const combinedData = {...dataBF, ...dataOTS}
-
-    console.log(combinedData)
 
     fs.writeFile('./data/resorts.json', JSON.stringify(combinedData), "utf-8", function(err) { console.log(err) })
 }
