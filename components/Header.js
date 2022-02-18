@@ -1,26 +1,32 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import logo from '../public/logo.svg';
-import logoHover from '../public/logo-hover-blue-alt.svg';
+import logoAlt from '../public/logo-hover-blue-alt.svg';
 
 const Header = () => {
-    const [hover, setHover] = useState(false);
 
     return (
         <div className="header-wrapper">
             <div className='header-img-wrapper'>
-                <a href="/">
-                    <div 
-                        onMouseOver={() => setHover(true)}
-                        onMouseOut={() => setHover(false)}
-                    >
-                    <Image
-                        src={hover ? logoHover : logo}
-                        alt="Whiteout Logo"
-                        layout={'responsive'}
-                    />
+                <div className='header-img-container'>
+                    <div className='logo'>
+                        <a href="/">
+                            <Image
+                                src={logo}
+                                alt="Whiteout Logo"
+                                layout={'responsive'}
+                            />
+                        </a>
                     </div>
-                </a>
+                    <div className='logo-alt'>
+                        <a href="/">
+                            <Image
+                                src={logoAlt}
+                                alt="Whiteout Logo"
+                                layout={'responsive'}
+                            />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     )

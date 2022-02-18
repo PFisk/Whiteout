@@ -7,9 +7,34 @@ html {
 }
 
 .header-img-wrapper {
+    position: relative;
     height: 60px;
     width: 260px;
     cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+    top: 0px;
+    height: 60px;
+    width: 260px;
+    display: block;
+}
+
+.logo:hover {
+    display: none;
+}
+
+.logo-alt {
+    position: absolute;
+    top: 0px;
+    height: 60px;
+    width: 260px;
+    display: none;
+}
+
+.logo-alt:hover {
+    display: block;
 }
 
 .snow-container {
@@ -114,9 +139,6 @@ html {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     z-index: 2;
-/*     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
 }
   
 .react-autosuggest__suggestions-list {
