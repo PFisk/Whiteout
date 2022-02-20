@@ -2,6 +2,19 @@ html {
     overflow-y: scroll;
 }
 
+.search-wrapper {
+    margin: -40vh;
+}
+
+.home-page {
+    min-height: 70vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .header-wrapper {
     padding: 10px 0px 0px 0px;
 }
@@ -19,10 +32,14 @@ html {
     height: 60px;
     width: 260px;
     display: block;
+    z-index: 1;
+    will-change: opacity;
+    transition: 0.5s;
 }
 
 .logo:hover {
-    display: none;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
 }
 
 .logo-alt {
@@ -30,10 +47,6 @@ html {
     top: 0px;
     height: 60px;
     width: 260px;
-    display: none;
-}
-
-.logo-alt:hover {
     display: block;
 }
 
@@ -57,6 +70,10 @@ html {
 
 .img-wrapper {
     width: 600px;
+}
+
+.background-wrapper {
+    width: 1260px;
 }
 
 .resort-title {

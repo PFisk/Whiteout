@@ -55,7 +55,7 @@ const getResortsBF = async (url) => {
 }
 
 const handleizer = (str) => {
-    return str.replace(/(\s-\s)|\s/g, '-')
+    return str.replace(/(\s-\s)|\s/g, '-').replace(/\./g, '')
 }
 
 const normalizeString = (str) => {

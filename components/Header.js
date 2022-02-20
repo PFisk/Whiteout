@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import logo from '../public/logo.svg';
 import logoAlt from '../public/logo-hover-blue-alt.svg';
 
@@ -9,22 +10,26 @@ const Header = () => {
             <div className='header-img-wrapper'>
                 <div className='header-img-container'>
                     <div className='logo'>
-                        <a href="/">
-                            <Image
-                                src={logo}
-                                alt="Whiteout Logo"
-                                layout={'responsive'}
-                            />
-                        </a>
+                        <Link href="/">
+                            <a>
+                                <Image
+                                    src={logo}
+                                    alt="Whiteout Logo"
+                                    layout={'responsive'}
+                                />
+                            </a>
+                        </Link>
                     </div>
                     <div className='logo-alt'>
-                        <a href="/">
-                            <Image
-                                src={logoAlt}
-                                alt="Whiteout Logo"
-                                layout={'responsive'}
-                            />
-                        </a>
+                        <Link href="/">
+                            <a>
+                                <Image
+                                    src={logoAlt}
+                                    alt="Whiteout Logo"
+                                    layout={'responsive'}
+                                />
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </div>

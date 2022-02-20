@@ -38,11 +38,16 @@ export default function ResortPage({ resortData }) {
         const input = e.target.elements[0].value
         const singleResort = search(input)
 
+        if (!singleResort) {
+            return
+        }
+
         if (singleResort) {
             setCurrentResort(singleResort)
         }
-
-        router.push(`/resort/${singleResort.handle}`)
+        if (input != '') {
+            router.push(`/resort/${singleResort?.handle}`)
+        }
     }
 
     const search = (input) => {

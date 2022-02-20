@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import Image from 'next/image'
 import ResortPage from '../components/ResortPage'
 import styles from '../styles/Home.module.css'
+import background from '../public/background.svg'
 
 const resortData = null
 
@@ -15,7 +17,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <ResortPage resortData={resortData} />
+      <main className='home-page'>
+        <div className='background-wrapper'>
+          <Image src={background} alt="Snow" layout={'responsive'} />
+        </div>
+      </main>
+      <div className='search-wrapper'>
+        <ResortPage resortData={resortData} />
+      </div>
     </div>
   )
 
