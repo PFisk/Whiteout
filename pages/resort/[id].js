@@ -3,9 +3,8 @@ import Header from '../../components/Header'
 import ResortPage from '../../components/ResortPage'
 import styles from '../../styles/Home.module.css'
 
-
 const getData = async () => {
-  const response = await fetch('http://localhost:3000/api/resorts')
+  const response = await fetch(process.env.NEXT_PUBLIC_URL + '/api/resorts')
   const resorts = await response.json()
   return resorts
 }

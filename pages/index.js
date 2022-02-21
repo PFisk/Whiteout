@@ -5,6 +5,8 @@ import ResortPage from '../components/ResortPage'
 import styles from '../styles/Home.module.css'
 import background from '../public/background.svg'
 
+console.log("env", process.env.NEXT_PUBLIC_URL)
+
 const resortData = null
 
 export default function Home() {

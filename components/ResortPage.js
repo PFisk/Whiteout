@@ -6,7 +6,7 @@ import Fuse from 'fuse.js'
 import { useRouter } from 'next/router'
 
 const getData = async () => {
-    const response = await fetch('http://localhost:3000/api/resorts')
+    const response = await fetch(process.env.NEXT_PUBLIC_URL + '/api/resorts')
     const resorts = await response.json()
     return resorts
 }
