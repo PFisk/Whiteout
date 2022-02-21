@@ -4,7 +4,7 @@ import ResortPage from '../../components/ResortPage'
 import styles from '../../styles/Home.module.css'
 
 const getData = async () => {
-  const response = await fetch(process.env.NEXT_PUBLIC_URL + '/api/resorts')
+  const response = await fetch(process.env.VERCEL_URL + '/api/resorts')
   const resorts = await response.json()
   return resorts
 }
