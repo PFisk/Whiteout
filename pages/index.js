@@ -5,7 +5,7 @@ import ResortPage from '../components/ResortPage'
 import styles from '../styles/Home.module.css'
 import background from '../public/background.svg'
 
-console.log("env", process.env.NEXT_PUBLIC_VERCEL_URL)
+console.log("env", process.env)
 
 const resortData = null
 
