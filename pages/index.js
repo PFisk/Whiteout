@@ -5,7 +5,9 @@ import ResortPage from '../components/ResortPage'
 import styles from '../styles/Home.module.css'
 import background from '../public/background.svg'
 
-console.log("env", process.env)
+const dev = process.env.NODE_ENV !== 'production';
+
+console.log("env", process.env.NODE_ENV)
 
 const resortData = null
 

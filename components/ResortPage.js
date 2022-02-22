@@ -5,8 +5,12 @@ import Autosuggest from 'react-autosuggest'
 import Fuse from 'fuse.js'
 import { useRouter } from 'next/router'
 
+const dev = process.env.NODE_ENV !== 'production';
+
+const baseURL = dev ? 'http://localhost:3000' : 'https://whiteout.vercel.app'
+
 const getData = async () => {
-    const response = await fetch(process.env.NEXT_PUBLIC_VERCEL_URL + '/api/resorts')
+    const response = await fetch(baseURL + '/api/resorts')
     const resorts = await response.json()
     return resorts
 }
