@@ -33,6 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# data
+# data here
 #/data
 #/data/resorts.json
