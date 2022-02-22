@@ -7,7 +7,25 @@ export default function handler(req, res) {
 
   const dataDirectory = path.join(process.cwd(), 'data/resorts.json')
 
-  const resorts = JSON.parse(fs.readFileSync(dataDirectory, 'utf8'))
+  const dataTest = {
+    "Austria": {
+      "name": "Austria",
+      "url": "https://www.bergfex.com/oesterreich/schneewerte/",
+      "resorts": [
+        {
+          "resortName": "Abtenau im Lammertal",
+          "searchName": "Abtenau im Lammertal",
+          "handle": "abtenau-im-lammertal",
+          "snowBottom": 50,
+          "snowTop": 80,
+          "newSnow": null,
+          "lifts": 5
+        },
+      ],
+    }
+  }
 
-  res.status(200).json(resorts)
+  //const resorts = JSON.parse(fs.readFileSync(dataDirectory, 'utf8'))
+
+  res.status(200).json(dataTest)
 }
