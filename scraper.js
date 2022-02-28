@@ -7,8 +7,8 @@ const PORT = 8080;
 
 const app = express();
 
-const dataBF = JSON.parse(fs.readFileSync('./pages/api/scraper_setup/bfSetup.json').toString());
-const dataOTS = JSON.parse(fs.readFileSync('./pages/api/scraper_setup/otsSetup.json').toString());
+const dataBF = JSON.parse(fs.readFileSync('./scraper_setup/bfSetup.json').toString());
+const dataOTS = JSON.parse(fs.readFileSync('./scraper_setup/otsSetup.json').toString());
 
 const getCountriesBF = async () => {
     const countries = Object.keys(dataBF)

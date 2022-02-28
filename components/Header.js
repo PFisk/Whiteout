@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../public/logo.svg';
-import logoAlt from '../public/logo-hover-blue-alt.svg';
+import Logo from '../public/logo.svg';
+import LogoAlt from '../public/logo-hover-blue-alt.svg';
 
 const Header = () => {
 
@@ -12,22 +11,14 @@ const Header = () => {
                     <div className='logo'>
                         <Link href="/">
                             <a>
-                                <Image
-                                    src={logo}
-                                    alt="Whiteout Logo"
-                                    layout={'responsive'}
-                                />
+                                <Logo />
                             </a>
                         </Link>
                     </div>
                     <div className='logo-alt'>
                         <Link href="/">
                             <a>
-                                <Image
-                                    src={logoAlt}
-                                    alt="Whiteout Logo"
-                                    layout={'responsive'}
-                                />
+                                <LogoAlt />
                             </a>
                         </Link>
                     </div>

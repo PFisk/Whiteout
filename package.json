@@ -6,9 +6,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "scrape": "node ./pages/api/scraper.js"
+    "scrape": "node ./scraper.js"
   },
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
     "axios": "^0.25.0",
     "cheerio": "^1.0.0-rc.10",
     "express": "^4.17.2",

@@ -4,14 +4,18 @@ import Image from 'next/image'
 import ResortPage from '../components/ResortPage'
 import styles from '../styles/Home.module.css'
 import background from '../public/background.svg'
+import { getResorts } from '../lib/resorts'
 
-const dev = process.env.NODE_ENV !== 'production';
+export async function getStaticProps() {
+  const resorts = getResorts()
+  return {
+      props: {
+          resorts
+      }
+  }
+}
 
-console.log("env", process.env.NODE_ENV)
-
-const resortData = null
-
-export default function Home() {
+export default function Home( { resorts } ) {
 
   return (
     <div className={styles.container}>
@@ -22,12 +26,9 @@ export default function Home() {
       </Head>
       <Header />
       <main className='home-page'>
-        <div className='background-wrapper'>
-          <Image src={background} alt="Snow" layout={'responsive'} />
-        </div>
       </main>
       <div className='search-wrapper'>
-        <ResortPage resortData={resortData} />
+        <ResortPage resorts={resorts} />
       </div>
     </div>
   )
