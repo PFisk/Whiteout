@@ -1,10 +1,8 @@
 import Head from 'next/head'
 import Header from '../components/Header'
-import Image from 'next/image'
 import ResortPage from '../components/ResortPage'
 import styles from '../styles/Home.module.css'
-import background from '../public/background.svg'
-import { getResorts } from '../lib/resorts'
+import { getResorts } from '../util/resorts'
 
 export async function getStaticProps() {
   const resorts = getResorts()
