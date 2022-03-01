@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import SmallMountain from '../public/mountain-small-grey.svg'
 import MediumMountain from '../public/mountain-medium-grey.svg'
 import BigMountain from '../public/mountain-big-grey.svg'
@@ -7,15 +6,14 @@ import Background from '../public/background.svg'
 
 const Resort = ({ resort }) => {
 
-
     const getImage = () => {
         switch (true) {
             case resort.lifts < 15:
-                return <SmallMountain />
+                return <SmallMountain width="100%" height="100%" viewBox="0 0 1500 900"/>
             case resort.lifts < 40:
-                return <MediumMountain />
+                return <MediumMountain width="100%" height="100%" viewBox="0 0 1500 900"/>
             default:
-                return <BigMountain />
+                return <BigMountain width="100%" height="100%" viewBox="0 0 1500 900"/>
         }
     }
 
@@ -24,7 +22,7 @@ const Resort = ({ resort }) => {
         <div>
             {!resort ? (
                 <div className='background-wrapper'>
-                    <Background/>
+                    <Background width="100%" height="100%" viewBox="0 0 1260 470"/>
                 </div>) : (
                 <div className='all-content'>
                     <div className='resort-title'>

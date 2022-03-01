@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from '../../components/Header'
 import ResortPage from '../../components/ResortPage'
 import styles from '../../styles/Home.module.css'
-import { getAllResortHandles, getResortData, getResorts } from '../../lib/resorts'
+import { getAllResortHandles, getResortData, getResorts } from '../../util/resorts'
 
 
 export async function getStaticPaths() {

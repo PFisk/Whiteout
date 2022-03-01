@@ -2,12 +2,8 @@ html {
     overflow-y: scroll;
 }
 
-.search-wrapper {
-    margin: -40vh;
-}
-
 .home-page {
-    min-height: 70vh;
+    min-height: 0vh;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -17,6 +13,10 @@ html {
 
 .header-wrapper {
     padding: 10px 0px 0px 0px;
+}
+
+.background-wrapper {
+    margin: 100px;
 }
 
 .header-img-wrapper {
