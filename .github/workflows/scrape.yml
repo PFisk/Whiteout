@@ -12,5 +12,6 @@ jobs:
     steps: 
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - name: Resort scraper
-        uses: ./scraper.js
+        uses: actions/
+        uses: ./
       - run: echo "🍏 This job's status is ${{ job.status }}."
