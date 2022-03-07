@@ -2,7 +2,7 @@ name: Scrape
 
 on:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 
@@ -16,3 +16,9 @@ jobs:
       - name: Resort scraper
         uses: ./
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🤖 Committing new data..."
+      - name: Commit data
+        run: |
+          git add -A
+          git commit -m "Data updated!" || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
