@@ -3,4 +3,4 @@ description: "Tool for scraping ski resorts"
 
 runs:
   using: 'node16'
-  main: 'scraper.js'
+  main: 'dist/index.js'
