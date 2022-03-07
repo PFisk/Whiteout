@@ -125,13 +125,3 @@ const scrape = async () => {
 }
 
 scrape()
-
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`)
-})
-
-process.on('SIGTERM', () => {
-    server.close(() => {
-      console.log('Process terminated')
-    })
-  })
