@@ -19,6 +19,8 @@ jobs:
       - run: echo "🤖 Committing new data..."
       - name: Commit data
         run: |
+          git config --global user.email "test@testemail.com"
+          git config --global user.name "Test Testesen"
           git add -A
           git commit -m "Data updated!" || echo "No changes to commit"
           git push origin || echo "No changes to commit"
