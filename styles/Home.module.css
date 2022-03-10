@@ -1,9 +1,10 @@
-.container {
+/* .container {
   padding: 0 2rem;
-}
+} */
 
 .main {
   min-height: 80vh;
+  padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
