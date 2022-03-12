@@ -19,7 +19,7 @@ h1 {
 
 .searchbar {
     width: 100%;
-    max-width: 400px;
+    max-width: 330px;
 }
 
 
@@ -132,7 +132,7 @@ h1 {
     padding: 12px;
     width: 100%;
     outline: none;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 
@@ -152,14 +152,14 @@ h1 {
 .react-autosuggest__suggestions-container--open {
     display: block;
     position: absolute;
-    top: 50px;
+    top: 3rem;
     width: 100%;
     border: 3px solid #777;
     border-top: 0px;
     background-color: #fff;
     font-family: Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1rem;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     z-index: 2;
@@ -184,6 +184,16 @@ h1 {
 @media screen and (min-width: 500px) {
     html {
         font-size: 20px;
+    }
+    .searchbar {
+        max-width: 400px;
+    }
+    .react-autosuggest__input {
+        font-size: 18px;
+    }
+    .react-autosuggest__suggestions-container--open {
+        font-size: 18px;
+        top: 2.55rem
     }
 }
 @media screen and (min-width: 768px) {
