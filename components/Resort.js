@@ -9,11 +9,11 @@ const Resort = ({ resort }) => {
     const getImage = () => {
         switch (true) {
             case resort.lifts < 15:
-                return <SmallMountain width="100%" height="100%" viewBox="0 0 1500 900"/>
+                return <SmallMountain width="100%" height="100%" viewBox="0 0 1500 900" />
             case resort.lifts < 40:
-                return <MediumMountain width="100%" height="100%" viewBox="0 0 1500 900"/>
+                return <MediumMountain width="100%" height="100%" viewBox="0 0 1500 900" />
             default:
-                return <BigMountain width="100%" height="100%" viewBox="0 0 1500 900"/>
+                return <BigMountain width="100%" height="100%" viewBox="0 0 1500 900" />
         }
     }
 
@@ -22,7 +22,7 @@ const Resort = ({ resort }) => {
         <div>
             {!resort ? (
                 <div className='background-wrapper'>
-                    <Background width="100%" height="100%" viewBox="0 0 1260 470"/>
+                    <Background width="100%" height="100%" viewBox="0 0 1260 470" />
                 </div>) : (
                 <div className='all-content'>
                     <div className='resort-title'>
