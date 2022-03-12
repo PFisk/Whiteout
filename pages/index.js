@@ -23,11 +23,7 @@ export default function Home( { resorts } ) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className='home-page'>
-      </main>
-      <div className='search-wrapper'>
-        <ResortPage resorts={resorts} />
-      </div>
+      <ResortPage resorts={resorts} />
     </div>
   )
 

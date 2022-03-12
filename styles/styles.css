@@ -2,22 +2,26 @@ html {
     overflow-y: scroll;
 }
 
-.home-page {
-    min-height: 0vh;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h1 {
+    font-size: 2rem;
 }
+
+
 
 .header-wrapper {
     padding: 10px 0px 0px 0px;
 }
 
 .background-wrapper {
-    margin: 100px;
+    width: 100%;
+    padding-bottom: 4rem;
 }
+
+.searchbar {
+    width: 100%;
+    max-width: 400px;
+}
+
 
 .header-img-wrapper {
     position: relative;
@@ -52,9 +56,36 @@ html {
 
 .snow-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 30px 0px;
-    max-width: 600px;
+    width: 100%;
+}
+
+.item {
+    flex: 50%;
+    padding: 10px 0px 10px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+.item h3 {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+.item span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333333;
+    margin-left: -10px;    
 }
 
 .all-content {
@@ -69,18 +100,13 @@ html {
 }
 
 .img-wrapper {
-    width: 600px;
-}
-
-.background-wrapper {
-    width: 1260px;
+    width: 100%;
 }
 
 .resort-title {
     text-align: center;
     color: #333333;
     font-size: 1.5rem;
-    padding-bottom: 30px;
 }
 
 .input-field:focus {
@@ -91,28 +117,9 @@ html {
     border: 3px solid #a5a5a5;
     border-radius: 12px;
     padding: 10px;
-    width: 400px;
+    width: 100%;
     outline: none;
     font-size: 18px;
-}
-
-.item label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333333;
-}
-
-.item h3 {
-    font-size: 48px;
-    font-weight: bold;
-    color: #333333;
-}
-
-.item span {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-    margin-left: -10px;
 }
 
 .react-autosuggest__container {
@@ -123,7 +130,7 @@ html {
     border: 3px solid #a5a5a5;
     border-radius: 12px;
     padding: 12px;
-    width: 400px;
+    width: 100%;
     outline: none;
     font-size: 18px;
 }
@@ -146,7 +153,7 @@ html {
     display: block;
     position: absolute;
     top: 50px;
-    width: 400px;
+    width: 100%;
     border: 3px solid #777;
     border-top: 0px;
     background-color: #fff;
@@ -172,4 +179,24 @@ html {
   
 .react-autosuggest__suggestion--highlighted {
     background-color: #ddd;
+}
+
+@media screen and (min-width: 500px) {
+    html {
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .item {
+        flex: 25%;
+    }
+    h1 {
+        font-size: 2.3rem;
+    }
+    .img-wrapper {
+        width: 600px;
+    }
+    .background-wrapper {
+        width: 800px;
+    }
 }

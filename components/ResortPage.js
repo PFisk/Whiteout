@@ -10,7 +10,7 @@ export default function ResortPage({ resorts, initialResort }) {
     return (
         <main className={styles.main}>
             <Resort resort={currentResort} />
-            <Searchbar setCurrentResort={setCurrentResort} resorts={resorts}/>
+                <Searchbar setCurrentResort={setCurrentResort} resorts={resorts} />
         </main>
     )
 

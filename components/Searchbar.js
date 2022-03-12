@@ -91,7 +91,7 @@ export default function Searchbar( { resorts, setCurrentResort } ) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} method="get">
+        <form className="searchbar" onSubmit={(e) => handleSubmit(e)} method="get">
         <Autosuggest
             suggestions={suggestion}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
