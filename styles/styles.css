@@ -3,7 +3,7 @@ html {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 
@@ -25,16 +25,15 @@ h1 {
 
 .header-img-wrapper {
     position: relative;
-    height: 60px;
-    width: 260px;
+    height: 20px;
+    width: 190px;
     cursor: pointer;
 }
 
 .logo {
     position: absolute;
     top: 0px;
-    height: 60px;
-    width: 260px;
+    width: 100%;
     display: block;
     z-index: 1;
     will-change: opacity;
@@ -49,8 +48,7 @@ h1 {
 .logo-alt {
     position: absolute;
     top: 0px;
-    height: 60px;
-    width: 260px;
+    width: 100%;
     display: block;
 }
 
@@ -64,7 +62,7 @@ h1 {
 
 .item {
     flex: 50%;
-    padding: 10px 0px 10px 40px;
+    padding: 10px 0px;
     display: flex;
     flex-direction: column;
 }
@@ -82,10 +80,16 @@ h1 {
 }
 
 .item span {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #333333;
-    margin-left: -10px;    
+    padding-bottom: 0.2rem;
+}
+
+.box-sub-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 
 .all-content {
@@ -185,6 +189,9 @@ h1 {
     html {
         font-size: 20px;
     }
+    h1 {
+        font-size: 1.6rem;
+    }
     .searchbar {
         max-width: 400px;
     }
@@ -195,10 +202,16 @@ h1 {
         font-size: 18px;
         top: 2.55rem
     }
+    .header-img-wrapper {
+        position: relative;
+        height: 40px;
+        width: 260px;
+    }
 }
 @media screen and (min-width: 768px) {
     .item {
         flex: 25%;
+        padding-left: 20px; /* Not the cleanest solution */
     }
     h1 {
         font-size: 2.3rem;

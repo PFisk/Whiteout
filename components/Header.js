@@ -11,14 +11,14 @@ const Header = () => {
                     <div className='logo'>
                         <Link href="/">
                             <a>
-                                <Logo />
+                                <Logo width="100%" height="100%" viewBox="0 0 260 60"/>
                             </a>
                         </Link>
                     </div>
                     <div className='logo-alt'>
                         <Link href="/">
                             <a>
-                                <LogoAlt />
+                                <LogoAlt width="100%" height="100%" viewBox="0 0 260 60"/>
                             </a>
                         </Link>
                     </div>
@@ -27,5 +27,6 @@ const Header = () => {
         </div>
     )
 }
+
 
 export default Header;
