@@ -35,16 +35,24 @@ const Resort = ({ resort }) => {
                         <div className="snow-container">
                             <div className="bot-box item">
                                 <label>Bottom</label>
-                                <h3>{resort.snowBottom ? resort.snowBottom : 0} <span>cm</span></h3>
+                                <div className='box-sub-item'>
+                                    <h3>{resort.snowBottom ? resort.snowBottom : 0} </h3>
+                                    <span>cm</span>
+                                </div>
                             </div>
                             <div className="top-box item">
                                 <label>Top</label>
-                                <h3>{resort.snowTop ? resort.snowTop : 0} <span>cm</span></h3>
+                                <div className='box-sub-item'>
+                                    <h3>{resort.snowTop ? resort.snowTop : 0} </h3>
+                                    <span>cm</span>
+                                </div>
                             </div>
                             <div className="new-box item">
                                 <label>Fresh snow</label>
-                                <h3>{resort.newSnow ? resort.newSnow : 0} <span>cm</span></h3>
-                            </div>
+                                <div className='box-sub-item'>
+                                    <h3>{resort.newSnow ? resort.newSnow : 0} </h3>
+                                    <span>cm</span>
+                                </div>                            </div>
                             <div className="lift-box item">
                                 <label>Lifts</label>
                                 <h3>{resort.lifts ? resort.lifts : 0}</h3>
