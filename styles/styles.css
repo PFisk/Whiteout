@@ -257,4 +257,8 @@ h1 {
     .background-wrapper {
         flex-direction: row;
     }
+
+    .snow-container {
+        min-width: 520px;
+    }
 }
