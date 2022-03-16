@@ -1,7 +1,7 @@
 import SmallMountain from '../public/mountain-small-grey.svg'
 import MediumMountain from '../public/mountain-medium-grey.svg'
 import BigMountain from '../public/mountain-big-grey.svg'
-import Background from '../public/background.svg'
+import BackgroundAlt from '../public/background-alt.svg'
 
 
 const Resort = ({ resort }) => {
@@ -22,7 +22,11 @@ const Resort = ({ resort }) => {
         <div>
             {!resort ? (
                 <div className='background-wrapper'>
-                    <Background width="100%" height="100%" viewBox="0 0 1260 470" />
+                    <div className='hero-text'>
+                        <h1>Snow depths at your favorite resort.</h1>
+                        <p>It's just snow depths. Nothing more, nothing less.</p>
+                    </div>
+                    <BackgroundAlt width="120%" height="100%" viewBox="0 0 860 530" />
                 </div>) : (
                 <div className='all-content'>
                     <div className='resort-title'>

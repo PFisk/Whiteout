@@ -33,6 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+#package
+package-lock.json
+
 # data here
 #/data
 #/data/resorts.json

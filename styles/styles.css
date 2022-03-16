@@ -15,6 +15,27 @@ h1 {
 .background-wrapper {
     width: 100%;
     padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.hero-text {
+    color: #3d3d3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0 0 0;
+}
+
+.hero-text h1{
+    font-size: 2rem;
+    margin: 0;
+}
+
+.hero-text p{
+    font-weight: 500;
+    margin: 0;
+    padding-top: 1rem;
 }
 
 .searchbar {
@@ -23,7 +44,7 @@ h1 {
 }
 
 
-.header-img-wrapper {
+.header-logo-wrapper {
     position: relative;
     height: 20px;
     width: 190px;
@@ -65,24 +86,22 @@ h1 {
     padding: 10px 0px;
     display: flex;
     flex-direction: column;
+    color: #3d3d3d;
 }
 
 .item label {
     font-size: 0.7rem;
     font-weight: bold;
-    color: #333333;
 }
 
 .item h3 {
     font-size: 2.3rem;
     font-weight: bold;
-    color: #333333;
 }
 
 .item span {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #333333;
     padding-bottom: 0.2rem;
 }
 
@@ -109,7 +128,7 @@ h1 {
 
 .resort-title {
     text-align: center;
-    color: #333333;
+    color: #3d3d3d;
     font-size: 1.5rem;
 }
 
@@ -202,7 +221,7 @@ h1 {
         font-size: 18px;
         top: 2.55rem
     }
-    .header-img-wrapper {
+    .header-logo-wrapper {
         position: relative;
         height: 40px;
         width: 260px;
@@ -216,10 +235,26 @@ h1 {
     h1 {
         font-size: 2.3rem;
     }
-    .img-wrapper {
-        width: 600px;
-    }
     .background-wrapper {
-        width: 800px;
+        max-width: 1260px;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 0 0 0;
+    }
+    
+    .hero-text h1{
+        font-size: 3rem;
+    }
+    
+    .hero-text p{
+        padding-top: 1rem;
+    }
+
+    .background-wrapper {
+        flex-direction: row;
     }
 }
