@@ -24,7 +24,7 @@ const Resort = ({ resort }) => {
                 <div className='background-wrapper'>
                     <div className='hero-text'>
                         <h1>Snow depths at your favorite resort.</h1>
-                        <p>It's just snow depths. Nothing more, nothing less.</p>
+                        <p>It&apos;s just snow depths. Nothing more, nothing less.</p>
                     </div>
                     <BackgroundAlt width="120%" height="100%" viewBox="0 0 860 530" />
                 </div>) : (
