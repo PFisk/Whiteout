@@ -114,3 +114,10 @@
     flex-direction: column;
   }
 }
+
+@media screen and (min-width: 500px) {
+  .main {
+    min-height: 85vh;
+    padding: 3.5rem;
+  }
+}

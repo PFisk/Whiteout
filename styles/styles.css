@@ -7,7 +7,6 @@ h1 {
 }
 
 
-
 .header-wrapper {
     padding: 10px 0px 0px 0px;
 }
@@ -17,6 +16,7 @@ h1 {
     padding-bottom: 4rem;
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
 }
 
 .hero-text {
@@ -225,6 +225,10 @@ h1 {
         position: relative;
         height: 40px;
         width: 260px;
+    }
+    .main {
+        min-height: 85vh;
+        padding: 3.5rem;
     }
 }
 @media screen and (min-width: 768px) {
