@@ -1,13 +1,14 @@
 import Autosuggest from 'react-autosuggest'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Fuse from 'fuse.js'
 
-export default function Searchbar( { resorts, setCurrentResort } ) {
+export default function Searchbar({ resorts, setCurrentResort }) {
 
     const [value, setValue] = useState('')
     const [suggestion, setSuggestion] = useState([])
     const router = useRouter()
+    //const searchRef = useRef()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,7 +28,7 @@ export default function Searchbar( { resorts, setCurrentResort } ) {
         }
     }
 
-    
+
     const search = (input) => {
         const fuse = new Fuse(resorts, {
             keys: ['searchName', 'resortName'],
@@ -41,6 +42,13 @@ export default function Searchbar( { resorts, setCurrentResort } ) {
         return singleResort
     }
 
+
+/*     function scrollTo(ref) {
+        if (!ref.current) return;
+        console.log("scrolling!")
+        ref.current.scrollIntoView({ behavior: 'smooth' })
+    }
+ */
     const getSuggestions = value => {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -67,6 +75,7 @@ export default function Searchbar( { resorts, setCurrentResort } ) {
 
     const onChange = (event, { newValue }) => {
         setValue(newValue)
+        //scrollTo(searchRef)
     }
 
     const onSuggestionsFetchRequested = ({ value }) => {
@@ -92,15 +101,15 @@ export default function Searchbar( { resorts, setCurrentResort } ) {
 
     return (
         <form className="searchbar" onSubmit={(e) => handleSubmit(e)} method="get">
-        <Autosuggest
-            suggestions={suggestion}
-            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={onSuggestionsClearRequested}
-            onSuggestionSelected={onSuggestionSelected}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
-        />
-    </form>
+            <Autosuggest
+                suggestions={suggestion}
+                onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                onSuggestionsClearRequested={onSuggestionsClearRequested}
+                onSuggestionSelected={onSuggestionSelected}
+                getSuggestionValue={getSuggestionValue}
+                renderSuggestion={renderSuggestion}
+                inputProps={inputProps}
+            />
+        </form>
     )
 }

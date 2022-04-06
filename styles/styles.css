@@ -124,6 +124,7 @@ h1 {
 
 .img-wrapper {
     width: 100%;
+    padding: 0 40px;
 }
 
 .resort-title {
@@ -263,6 +264,10 @@ h1 {
     }
 
     .snow-container {
-        min-width: 520px;
+        min-width: 580px;
+    }
+
+    .search-margin {
+        display: flex;
     }
 }
