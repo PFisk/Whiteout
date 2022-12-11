@@ -92,7 +92,7 @@ const getResortOTS = async (url) => {
     let resort = {}
 
     $(".styles_main__vq2PA", html).each(function () {
-        const displayName = $(this).find(".styles_h2__1fsE4").text().trim().replace(/:\D*/g, '').replace(/\//g, '-')
+        const displayName = $(this).find(".styles_h2__1fsE4").first().text().trim().replace(/:\D*/g, '').replace(/\//g, '-')
         const searchName = normalizeString(displayName)
         const handle = handleizer(searchName).toLowerCase()
         const newSnow = $(this).find(".styles_text__3kNRt").text().trim().replace(/\D/g, '')
