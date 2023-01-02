@@ -122,6 +122,8 @@ const scrape = async () => {
     const combinedData = {...dataBF, ...dataOTS}
 
     fs.writeFile('./data/resorts.json', JSON.stringify(combinedData), "utf-8", function(err) { console.log(err) })
+
+    console.log("All done!")
 }
 
 scrape()
