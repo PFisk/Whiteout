@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "scrape": "node ./scraper2.js"
+    "scrape": "node ./scraper.js"
   },
   "dependencies": {
     "@actions/core": "^1.6.0",

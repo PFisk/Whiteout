@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Resort scraper
-        uses: ./scraper2.js
+        uses: ./
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "🤖 Committing new data..."
       - name: Commit data
