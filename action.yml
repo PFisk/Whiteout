@@ -2,5 +2,5 @@ name: "Resort scraper"
 description: "Tool for scraping ski resorts"
 
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
