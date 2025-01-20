@@ -1,39 +1,28 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
 
-export default function getData() {
-
-    const dataDirectory = path.join(process.cwd(), 'data/resorts.json')
-
-    const data = JSON.parse(fs.readFileSync(dataDirectory, 'utf8'))
-  
-    return data
+function getData() {
+  const dataDirectory = path.join(process.cwd(), 'data', 'resorts.json');
+  const data = JSON.parse(fs.readFileSync(dataDirectory, 'utf8'));
+  return data;
 }
 
 export function getResorts() {
-    const data = getData()
-    return Object.values(data).map(country => {
-        return country.resorts.map(resort => {
-            return resort
-        })
-    }).flat()
+  const data = getData();
+  return Object.values(data).flatMap(country => country.resorts);
 }
 
 export function getAllResortHandles() {
-    const data = getData()
-  
-    const handles = Object.values(data).map(country => {
-      return country.resorts.map(resort => {
-        return { params: { id: resort.handle } }
-      })
-    }).flat()
-    return handles
+  const data = getData();
+  return Object.values(data).flatMap(country => 
+    country.resorts.map(resort => ({
+      params: { id: resort.handle }
+    }))
+  );
 }
 
 export function getResortData(handle) {
-  const resorts = getResorts()
-  const resortData = Object.values(resorts).find(r => {
-    return r.handle === handle
-  })
-  return { handle, ...resortData }
+  const resorts = getResorts();
+  const resortData = resorts.find(r => r.handle === handle);
+  return resortData ? { handle, ...resortData } : null;
 }
