@@ -8,14 +8,27 @@ on:
 jobs:
   scrape-latest:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Resort scraper
-        uses: ./
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "🤖 Committing new data..."
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Use the Node.js version you use locally
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run the scraper script
+      - name: Run scraper
+        run: npm run scrape
+
+      # Step 5: Commit and push changes
       - name: Commit data
         run: |
           git config --global user.name "PFisk"
